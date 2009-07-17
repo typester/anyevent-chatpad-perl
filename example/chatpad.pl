@@ -1,10 +1,9 @@
 use strict;
 use warnings;
 
-use AnyEvent;
-use WebService::ChatPad;
+use AnyEvent::WWW::ChatPad;
 
-my $chat = WebService::ChatPad->new;
+my $chat = AnyEvent::WWW::ChatPad->new;
 $chat->reg_cb(
     on_error => sub { die @_ },
 

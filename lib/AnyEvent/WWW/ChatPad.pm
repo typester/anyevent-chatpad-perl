@@ -1,4 +1,4 @@
-package WebService::ChatPad;
+package AnyEvent::WWW::ChatPad;
 use Any::Moose;
 
 extends any_moose('::Object'), 'Object::Event';
@@ -136,7 +136,9 @@ sub _poll_handler {
                 # TODO: support upload faces
             }
             elsif ($cmd eq 'p') { # other's face
-                $self->event( on_picture => $content );
+                $self->event(
+                    on_picture => sprintf("http://chatpad.jp/face/%s", $content),
+                );
             }
             elsif ($cmd eq 'a') { # user count
                 $self->event( on_user_count => $content );
@@ -153,11 +155,11 @@ __END__
 
 =head1 NAME
 
-WebService::ChatPad - Module abstract (<= 44 characters) goes here
+AnyEvent::WWW::ChatPad - Module abstract (<= 44 characters) goes here
 
 =head1 SYNOPSIS
 
-  use WebService::ChatPad;
+  use AnyEvent::WWW::ChatPad;
   blah blah blah
 
 =head1 DESCRIPTION

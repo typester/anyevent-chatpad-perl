@@ -1,8 +1,10 @@
 use inc::Module::Install;
-name 'WebService-ChatPad';
-all_from 'lib/WebService/ChatPad.pm';
+name 'AnyEvent-WWW-ChatPad';
+all_from 'lib/AnyEvent/WWW/ChatPad.pm';
 
+requires 'Any::Moose';
 requires 'AnyEvent';
+requires 'Object::Event';
 requires 'HTTP::Request::Common';
 
 test_requires 'Test::More';
